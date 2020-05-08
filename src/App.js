@@ -10,23 +10,28 @@ function App(props) {
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
-      <button id="btn" onClick={props.setText("A new text!")}>
+      <h2>{props.textToShow}</h2>
+      <button id="btn" onClick={() => props.setText("A new text!")}>
         Set text
       </button>
-      {/* {console.log(document.getElementById('btn').click)} */}
+      <button id="btn2" onClick={() => props.setText("A new text2!")}>
+        Set text2
+      </button>
     </div>
   );
 }
 
 const mapDispatchToProps = dispatch => ({
-  setText: () => {
-    dispatch(addTextAction("Hi!"));
+  setText: text => {
+    dispatch(addTextAction(text));
   }
 });
 
-// const mapStateToProps
+const mapStateToProps = state => ({
+  textToShow: state.text.text
+});
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App);

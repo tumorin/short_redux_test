@@ -5,7 +5,7 @@ const INIT_STATE = {
 const textReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case "ADD":
-      console.log(action, state);
+      // console.log(action, state);
       return {
         ...state,
         text: action.payload

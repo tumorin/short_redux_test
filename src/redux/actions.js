@@ -4,7 +4,7 @@
 // });
 
 const addTextAction = text => {
-  console.log(text);
+  // console.log(text);
   return {
     type: "ADD",
     payload: text
